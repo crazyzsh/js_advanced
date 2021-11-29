@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let a = 5
+        while (true) {
+
+            console.log(a); //5,4,3,2,1
+            --a
+            if (a === 0) break
+        }
+        let b = 5
+        // 当1进去的时候，并没有立即减1，即在判断是否为零的时候还是等于1，在打印的时候才变为0，所以能打印出0
+        while (b-- !== 0) {
+            console.log("b:", b); //4,3,2,1,0
+        }
+        let c = 5
+        while (--c !== 0) {
+            console.log("c:", c); //4,3,2,1
+        }
+
+        function table(option = {
+            tr: 5,
+            td: 5
+        }) {
+            document.write(`<table border="1" width="100%">`)
+            while (option.tr-- !== 0) {
+                document.write(`<tr>`)
+                // 这里的td一定要放在里面(重新赋值每写完一行就重新赋值)
+                let td = option.td
+                while (td-- !== 0) {
+                    document.write(`<td>${td}</td>`)
+                }
+                document.write(`</tr>`)
+            }
+            document.write(`</table >`)
+        }
+        table()
+    </script>
+</body>
+
+</html>

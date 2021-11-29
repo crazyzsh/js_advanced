@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 正则表达式参数为:【/表达式/[switch]】
+        // switch称为修饰符，可以设定按照什么样的模式来进行匹配
+        //g:全局匹配  i:忽略大小写  gi:全局匹配和忽略大小写
+        let a = "hello poLl"
+
+        // 使用replace只能替换一个
+        b = a.replace("l", "")
+        console.log(b); //helo poLl
+
+        // 使用g可以全局匹配相应的字符
+        let c = a.replace(/l/g, "9") //he99o poL9
+        console.log(c);
+
+        //使用gi可以忽略大小写进行匹配
+        let d = a.replace(/l/gi, "9") //he99o po99
+        console.log(d);
+
+        // 综合使用
+        let aa = "我买了一把玩具枪"
+        let aaa = aa.replace(/买|枪/g, "**") //如果没有g的话也会识别不了两个
+        console.log(aaa);
+    </script>
+</body>
+
+</html>

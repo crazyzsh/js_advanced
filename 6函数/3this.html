@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 1、在对象中：属性可以写成
+        // 1-1、函数名:function(){}
+        // 1-2、函数名:()={}
+        // 1-3、function 函数名(){}
+
+        // 对象中的属性：属性的this指向对象，但是如果属性中还有函数（普通函数，而非箭头函数），此时函数的this是指向window的，可以在属性中先改变this的指向，当内层找不到，再向外层找，而不能用this
+        // 对象中的属性：如果属性中的函数改成箭头函数，那么此时的箭头函数中的this就是指向上下文，即指向父级中的this，此时就解决了问题
+    </script>
+</body>
+
+</html>

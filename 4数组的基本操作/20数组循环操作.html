@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let arr = [1, 2, 3, 2]
+
+        // in就是索引
+        for (const key in arr) {
+            console.log('key:', key);
+        }
+
+        // of就是值
+        for (const value of arr) {
+            console.log('of:', value);
+        }
+
+        // 如果直接对arr中的值进行操作，则不会起作用，而操作对象则起作用。【值类型和引用类型是有区别的】
+        for (const value of arr) {
+            // 这样写是会直接报错的
+            // value += 1
+            console.log(value);
+        }
+
+        // 轻松实现数组中的对象属性的添加或修改
+        let arrs = [{ name: "张三", age: 12 }, { name: "lili", age: 21 }, { name: '李四', age: 9 }]
+
+        for (const key in arrs) {
+            arrs[key].title = `我是${arrs[key].name}`
+        }
+        console.log(arrs);
+
+
+    </script>
+</body>
+
+</html>

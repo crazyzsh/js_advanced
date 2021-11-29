@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    li {
+        list-style: none;
+        padding: 10px;
+    }
+
+    li:nth-child(odd) {
+        list-style: none;
+        background: skyblue;
+    }
+</style>
+
+<body>
+    <script>
+        // 转义字符"\"，只要用到了\,就进行转义，例如“\n==>换行”
+        let a = "jian\""
+        console.log(a); //   jian"
+
+        // 模板字面量==>``,支持添加变量，换行等
+        let arr = [{
+            title: "alibaba"
+        }, {
+            title: 'baidu'
+        }]
+
+        // 这里写入的是数组
+        document.write(arr.map(e =>
+            e.title
+        ))
+        var fruits = ["Banana", "Orange", "Apple", "Mango"];
+        // join用来连接数组的元素（""使得无缝连接）（不是空格）
+        var energy = fruits.join("");
+        console.log(energy);
+
+        // 定义一个模板函数(使用嵌套双层模板字符串)
+        function template(arr) {
+            return `<ul>
+                ${arr.map(e=>`<li>${e.title}</li>`).join("")}
+                </ul>`
+        }
+        // 写入html
+        document.body.innerHTML = template(arr)
+    </script>
+</body>
+
+</html>

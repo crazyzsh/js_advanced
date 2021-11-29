@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 类的概念就是：类就是对象的模板，对象就是类的实例
+        // 创建对象的三种方式：
+        // 1、使用new Object()来进行创建
+        // 2、使用字面量创建对象（let a={}）
+        // 3、使用构造函数或者类来创建
+        // 在ES6之前，创建多个对象只能使用构造方法
+        function Star(name, age) {
+            this.name = name
+            this.age = age
+            // this.say = function () {
+            //     console.log(this.name);
+            // }
+        }
+        Star.prototype = {
+            // 必须重新指回去
+            constructor: Star,
+            movie: function () {
+                console.log("我会演电影");
+            },
+            say: function () {
+                console.log(this.name);
+            }
+        }
+        // 1、【实例成员】就是构造函数内部通过this添加的成员name age sing就是实例成员
+        // 实例成员只能通过实例化的对象来访问
+        let ldh = new Star("刘德华", 55)
+        ldh.say()
+
+        // 2、【静态成员】在构造函数本身上添加的成员money就是静态成员
+        // 静态成员只能通过构造函数进行访问
+
+        // 赋予静态成员
+        Star.money = 1000
+        let zxy = new Star("张学友", 66)
+        console.log("实例对象访问静态成员：", zxy.money);
+        console.log("构造函数访问静态成员：", Star.money);
+
+        console.dir(Star);
+        // 每一个构造函数都有一个原型prototype，由于它是一个对象，所以我们称之为原型对象
+        // 在构造函数中，我们可以将一些简单类型的属性放入this，但是将复杂类型方法（函数）直接放入this的话会造成资源浪费。
+        // 因为每new一个实例，都要为方法开辟一个新的内存，此时我们可以将方法放入构造函数中的原型对象中，方便共享，不必造成资源的浪费，正确的做法如下：
+        Star.prototype.dance = function () {
+            console.log("我会跳舞");
+        }
+        zxy.dance() //正常输出
+        console.log(zxy.__proto__ === Star.prototype); //true ===>构造函数的原型对象指向实例的对象原型
+        console.log(ldh.__proto__ === zxy.__proto__); //true===>各 实例对象的 对象原型 由于都是指向（等于）原型对象，所以都是相等的
+
+        // 在 构造函数的原型对象prototype中 以及 实例对象的 对象原型__proto__中 都有有一个constructor，他们都是指向构造函数
+        // 当我们通过【构造函数.prototype.方法名=function(){}】的形式进行动态添加方法，这样看起来非常麻烦，所以可以通过以下的方法进行赋值(实际上如果不指明constructor的指向，将会把prototype给完全覆盖)
+        // Star.prototype = {
+        //     // 必须重新指回去
+        //     constructor: Star,
+        //     movie: function () {
+        //         console.log("我会演电影");
+        //     },
+        //     say: function () {
+        //         console.log(this.name);
+        //     }
+        // }
+        ldh.movie()
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .color {
+            color: red
+        }
+    </style>
+</head>
+
+<body>
+    <div>hello,world</div>
+    <script>
+        let div = document.querySelector('div')
+        // console.log(div);
+        // console.log(typeof (div)); //object
+        // console.log(typeof (div.textContent)); //string
+        // console.log([...div.textContent]);
+        // let a = 'nnu'
+        // console.log([...a]);//将字符串展开成数组
+        // console.log([...div.textContent]);
+        text = Array.from(div.textContent)
+        // text.reduce((pre, cur, index) => {
+        //     let h = document.createElement('h1')
+        //     h.innerHTML = cur
+        //     div.appendChild(h)
+        //     // console.log(pre, cur, index);
+        //     pre += 1
+        //     return pre
+        // }, 0)
+        text.reduce((pre, cur, index) => {
+            (pre === index) && (div.innerHTML = '')
+            let span = document.createElement('span')
+            span.innerHTML = cur
+            div.appendChild(span)
+            span.addEventListener("mouseover", function () {
+                this.classList.add('color')
+            })
+            console.log(pre, cur, index);
+            // pre += 1
+            // return pre
+        }, 0)
+    </script>
+</body>
+
+</html>

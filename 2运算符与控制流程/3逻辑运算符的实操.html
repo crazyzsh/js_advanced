@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" name="password">
+    <input type="text" name="check">
+    <span name="text"></span>
+
+    <script>
+        // 定义一个返回dom节点的函数
+        function query(name) {
+            return document.querySelector(`[name=${name}]`)
+        }
+        let ele = document.querySelectorAll('[name="password"],[name="check"]');
+        // 只要键盘事件触发了，就会进行迭代
+        [...ele].map((item) => {
+            item.addEventListener("keyup", function () {
+                let msg = ''
+                if (query('password').value != query('check').value || query("password").value.length <
+                    6) {
+                    msg = "两次密码不一致或密码小于6位，请重新输入！"
+                }
+                query("text").innerHTML = msg
+            })
+        })
+    </script>
+</body>
+
+</html>

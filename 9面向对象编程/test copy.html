@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 类的概念就是：类就是对象的模板，对象就是类的实例
+        // 创建对象的三种方式：
+        // 1、使用new Object()来进行创建
+        // 2、使用字面量创建对象（let a={}）
+        // 3、使用构造函数或者类来创建
+        // 在ES6之前，创建多个对象只能使用构造方法
+        function Star(name, age) {
+            this.name = name
+            this.age = age
+
+        }
+        let ldh = new Star("ldh", 19)
+        console.log(Star.prototype.constructor); //都是指向的构造函数
+        console.log(ldh.__proto__.constructor); //都是指向的构造函数
+
+        Star.prototype = {
+            // constructor: Star,
+            movie: function () {
+                console.log("我会演电影");
+            }
+        }
+        console.log(Star.prototype.constructor); //都是指向的构造函数
+        console.log(ldh.__proto__.constructor); //都是指向的构造函数
+
+
+        ldh.movie()
+        console.log(ldh.age);
+        ldh.age
+    </script>
+</body>
+
+</html>

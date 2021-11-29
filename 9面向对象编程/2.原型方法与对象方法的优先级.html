@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let obj = {
+            test: function () {
+                console.log("自身的test");
+            }
+        }
+        // 给原型添加方法
+        obj.__proto__.test = function () {
+            console.log("__proto__的test：");
+        }
+        console.log(obj);
+        // 如果自身的方法与原型上的方法冲突，采取就近原则
+        console.log(obj.test()); //自身的test
+        // 打印obj的原型
+        console.log(obj.__proto__);
+    </script>
+</body>
+
+</html>

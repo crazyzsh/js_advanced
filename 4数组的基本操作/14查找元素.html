@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        const a = ['1', 2, 3, 2, 1, false]
+
+        // 从左往右进行查找
+        console.log(a.indexOf(2))//1
+        // 从索引为3从左往右开始查
+        console.log(a.indexOf(2, 3))//3
+        // 从右往左进行查找
+        console.log(a.lastIndexOf(2))//3
+        // 从倒数第三的位置从右往左进行查找
+        console.log(a.lastIndexOf(2, -3))//3
+        // 返回布尔值
+        console.log(a.includes(3))//true
+
+    </script>
+</body>
+
+</html>

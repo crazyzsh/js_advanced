@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .hovers {
+            color: rgb(235, 18, 11);
+        }
+    </style>
+</head>
+
+
+<body>
+    <ul>
+        <li>li1</li>
+        <li>li2</li>
+        <li>li3</li>
+        <li>li4</li>
+    </ul>
+    <script>
+        let arrs = [{ name: "张三", age: 12 }, { name: "lili", age: 21 }, { name: '李四', age: 9 }]
+        // forEach的有三个参数，第一个为元素，第二个为索引，第三个为原数组
+        arrs.forEach((e, index) => console.log(index, e.name))
+
+        let arr = document.querySelectorAll('ul li')
+        console.log(Array.from(arr));
+        // 或者使用展开的方式直接转换成数组
+        // console.log([...arr]);
+
+        // 直接进行DOM元素的操作
+        arr.forEach((e) => {
+            e.addEventListener("click", function () {
+                this.classList.toggle('hovers')
+            })
+            console.log(e);
+        })
+    </script>
+</body>
+
+</html>

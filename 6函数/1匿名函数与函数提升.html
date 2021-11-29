@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 匿名函数不会提升，普通函数会进行提升
+        // 匿名函数就是没有函数名字的函数，是直接通过变量赋值的形式
+
+        // 匿名函数不能在定义函数之前进行调用
+        // func() //报错
+        let func = function () {
+            console.log("func");
+        }
+        func()
+
+        regular() //可以进行调用，函数提升了
+        function regular() {
+            console.log("regular");
+        }
+
+        // 使用var不会报错
+        var test = function () {
+            console.log("test函数");
+        }
+        // let会报错重复定义
+        // let test = function () {
+        //     console.log("test函数");
+        // }
+        function test() {
+            console.log("var——test");
+        }
+        // 指针传递（函数为引用类型，地址没有变）
+        // let b = test
+        // b()
+        test() //普通函数先提升，所以程序再执行匿名函数，所以输出的是匿名函数
+    </script>
+</body>
+
+</html>

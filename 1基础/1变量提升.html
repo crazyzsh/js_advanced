@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 程序实际执行的顺序（先声明再进行赋值）
+        var a
+        a = 17
+        console.log("a:", a) //17
+
+        // 变量提升（程序执行的时候，首先会进行变量的搜寻，比如以下的代码，输出的结果是undefined）
+        // 因为首先进行的变量的声明，即"var str",且此时并没有进行赋值操作，程序还是从上到下执行，所以此时不会报错，而是打印undefined，这就是变量提升）
+
+        console.log("str:", str) //undefined
+        var str = "hello world"
+
+        // 如果使用的是let而不是var则不存在变量提升，以下写法就会报错
+        // console.log(lets); //报错
+        // let lets = 1
+    </script>
+</body>
+
+</html>

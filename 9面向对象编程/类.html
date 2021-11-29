@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 1、子类如果想调用父类的方法的话只需声明一个super关键字，此时super就相当于是父类对象，调用父类方法的话就直接使用语法【super.方法名()】
+        // 2、如果调用的父类函数需要传递相应的参数，此时就需要在子类的构造函数中调用父类的构造函数，同时将子类的属性值传递给调用的父类构造函数【super.方法名(参数)】，此时传递的参数应注意顺序
+        // 3、只要在子类中的 构造函数 中使用了super关键字之后（一般会进行参数传递），那么子类就拥有了父类的所有属性和方法
+
+        // 4、类里面没有变量提升，必须先定义类才能调用类
+        // 5、公共的属性和方法一定要用this
+        // 6、如果想要一经实例化类就进行调用，就将其放入构造函数中（记得加上this）
+
+        // 7、构造函数中的this指向的就是创建的实例对象
+        // 8、方法里面的this指向的是调用者
+
+        // 定义父类
+        class Father {
+            constructor(dos) {
+                this.dos = dos
+                // 相当于python中的__init__可以在实例化的时候就直接进行调用
+                this.fathers()
+            }
+            fathers() {
+                console.log(`父亲干了啥：${this.dos}`);
+            }
+        }
+
+        // 定义子类并继承于父类
+        class Son extends Father {
+            constructor(num) {
+                // 调用父类的方法或者属性的时候要写在前面，不然会不起作用,同时传递
+                super(num)
+                this.num = num
+            }
+            son(toy) {
+                console.log(`儿子有${this.num}个${toy}`);
+                super.fathers()
+            }
+        }
+        const b = new Son(10)
+        b.son("玩偶");
+    </script>
+</body>
+
+</html>

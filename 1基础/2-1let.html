@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 1、【let不存在变量提升】
+        // 2、【使用let存在块级作用域】
+        // 3、【使用let存在暂时性死区】
+        // 4、【可以和var一样先声明但不赋值】
+        var b = 3
+        if (true) {
+            // 在这里，先是进行打印，不论后面使用var是否进行了赋值，此时都是undefined，会向外进行查找。
+            console.log("b:", b); //3
+            var b = 7
+            // var b
+        }
+
+        let c = 4 //这里的示例var和let的效果是一致的
+        if (true) {
+            console.log("c:", c); //只要在里面使用let声明了要使用的变量（不论是否进行了赋值），就不会向外进行查找，而是进入了暂时性死区
+            let c = 5
+        }
+        let d
+        console.log("d:", d); //undefined
+    </script>
+</body>
+
+</html>

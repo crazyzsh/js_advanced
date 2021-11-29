@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let arrs = [1, 2, 34, 5, 2]
+        // 如果一开始没有传初始值，那么默认初始值就是数组的第一个值，这样的话数组只能迭代（数组长度－1）次，如果同时也没有return的话，那么第二次开始pre就为undefined
+        // reduce用法，刚开始可以传入初始pre，迭代的时候每次pre的值为上次return出去的值,所以使用时务必return出去一个值，这样才能发挥最大作用
+
+        // 自定义计数函数
+        function count(arr, num) {
+            return arr.reduce((pre, cur) => {
+                pre += cur === num ? 1 : 0
+                return pre
+            }, 0)
+
+        }
+        console.log(count(arrs, 2));
+
+        // 自定义求最大值函数
+        function max(arr) {
+            return arr.reduce((pre, cur) => {
+                return pre > cur ? pre : cur
+            })
+        }
+        console.log(max([1, 33, 2, 44]));
+
+        let arrObj = [{
+            name: 'iphone12',
+            price: 5500
+        }, {
+            name: "iphone12mini",
+            price: 5000
+        }, {
+            name: "iphone13",
+            price: 6000
+        }]
+
+        // 求出商品最贵的一项
+        function highPrice(arr) {
+            return arr.reduce((pre, cur) => {
+                return pre.price > cur.price ? pre : cur
+            })
+        }
+        console.log(highPrice(arrObj));
+
+        // 求出购物车商品总和
+        function sumPrice(arr) {
+            return arr.reduce((pre, cur) => {
+                return (pre += cur.price)
+            }, 0)
+        }
+        console.log(sumPrice(arrObj));
+
+        // 获取商品超过五千的名字(常规做法，不能获取到名称)
+        console.log(arrObj.filter((e) => {
+            return e.price > 5000
+        }));
+
+        // 获取商品超过五千的名字(reduce做法==>间接写法（使用了map进行连写）)
+        function wuqian(arr) {
+            return arr.reduce((arrs, cur) => {
+                cur.price > 5000 ? arrs.push(cur) : arrs
+                return arrs
+            }, []).map((e) => {
+                return e.name
+            })
+        }
+        console.log("reduce:", wuqian(arrObj));
+
+        // 获取商品超过五千的名字(reduce做法==>直接写法（直接添加商品名称）)
+        function wuqian(arr) {
+            return arr.reduce((arrs, cur) => {
+                cur.price > 5000 ? arrs.push(cur.name) : arrs
+                return arrs
+            }, [])
+        }
+        console.log("reduce:", wuqian(arrObj));
+
+        // 数组去重
+        let arr = [1, 23, 4, 3, 2, 1, 1, 2, 2]
+
+        function only(arr) {
+            return arr.reduce((pre, cur) => {
+                pre.includes(cur) === false ? pre.push(cur) : pre
+                return pre
+            }, [])
+        }
+        console.log("数组去重：", only(arr));
+        // 数组去重（对象形式）
+        let arrObjs = [{
+            name: 'iphone12',
+            price: 5500
+        }, {
+            name: "iphone12mini",
+            price: 5000
+        }, {
+            name: "iphone13",
+            price: 6000
+        }, {
+            name: "iphone13",
+            price: 6000
+        }]
+
+        function onlys(arr) {
+            return arr.reduce((pre, cur) => {
+                // if (!pre.find((e) => {
+                //         return e.name === cur.name
+                //     })) {
+                //     pre.push(cur)
+                // }
+                // return pre
+                pre.findIndex((e) => {
+                    return e.name === cur.name
+                }) === -1 ? pre.push(cur) : pre
+                return pre
+            }, [])
+        }
+        console.log("对象形式:", onlys(arrObjs));
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 箭头函数中的this指向的是箭头函数定义位置中的this【】
+        str = "hello"
+        let a = {
+            str: 'inner',
+            say: () => {
+                console.log(this.str)
+            },
+            dance: function () {
+                console.log(this.str);
+            },
+            hi() {
+                console.log(this.str);
+            },
+        }
+        a.say() //hello
+        a.dance() //inner
+        a.hi() //inner
+
+        let b_say = a.say
+        let b_dance = a.dance
+        let b_hi = a.hi
+        console.log("*".repeat(10));
+        b_say() //hello
+        b_dance() //hello
+        b_hi() //hello
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let arr = [12, 18, 10, 30]
+        // a-b就是升序，反之就是降序
+        let arr1 = arr.sort((a, b) => { return a - b })
+        console.log(arr1);
+
+        let arrObj = [{ name: 'iphone12', price: 5500 }, { name: "iphone12mini", price: 5000 }, { name: "iphone13", price: 6000 }]
+        arrObj1 = arrObj.sort((a, b) => {
+            return b.price - a.price
+        })
+        console.log(arrObj1);
+    </script>
+</body>
+
+</html>

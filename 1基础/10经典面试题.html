@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 使用var声明的全局的【每循环一次就会将新的i值给覆盖掉，不存在块级作用域的说法】（注意这里的循环中的{}不要当成是函数，以免将var当成局部变量）
+        // 以下两个函数可以将其分解，每循环一次就定义函数，
+        //最后才进行调用【其中使用var定义的函数，相当于是裸奔，作用域为全局，每次i的值都会发生变化，将前一个i覆盖掉；所以调用的时候i为不满足循环时的i】
+
+        var arr = []
+        for (var i = 0; i < 2; i++) {
+            arr[i] = function () {
+                console.log(i);
+            }
+        }
+        arr[0]() //2
+        arr[1]() //2
+
+        // 这里也是每循环一次就定义一个函数，但是会产生作用域，也就是说函数只能使用定义时所处作用域下的j值
+        let arrs = []
+        for (let j = 0; j < 2; j++) {
+            arrs[j] = function () {
+                console.log(j);
+            }
+        }
+        // 函数调用的时候会去查找定义时所处的作用域【所以这里生成了2个块级作用域】
+        arrs[0]() //0
+        arrs[1]() //1
+    </script>
+</body>
+
+</html>

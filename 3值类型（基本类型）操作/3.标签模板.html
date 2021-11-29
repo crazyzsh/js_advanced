@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let lessons = [{
+            title: "后盾人响应式布局",
+            author: "后盾人向军"
+        }, {
+            title: "FLEX布局",
+            author: "后盾人"
+        }, {
+            title: "GRID栅格系统后盾人教程",
+            author: "顾老师"
+        }];
+
+        function template() {
+            return `<ul>
+                        ${lessons.map(e=>links`<li>作者：${e.author},课程：${e.title}</li>`).join("")}
+                    </ul>`
+        }
+        document.body.innerHTML = template()
+
+        function links(string, ...vars) {
+
+            return string.map((item, index) => {
+                return item + (vars[index] ? vars[index].replace("后盾人",
+                    `<a href="http://www.njnu.edu.cn/">后盾人</a>`) : '')
+            }).join("")
+        }
+    </script>
+</body>
+
+</html>

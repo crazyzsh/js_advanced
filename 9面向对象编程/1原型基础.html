@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let a = []
+        let b = {}
+        let c = {}
+        console.log(a); //数组拥有两层Prototype【三代】
+        console.log(b); //对象拥有一层Prototype【两代】
+        Object.getPrototypeOf(b) == Object.getPrototypeOf(c)
+        console.log(Object.getPrototypeOf(b) == Object.getPrototypeOf(c)); //true有相同的父亲
+        function Boy(name) {
+            this.name = name
+        }
+        const d = new Boy(1)
+        console.log("d.", d.__proto__ === Boy.prototype);
+        // 总结：先找自身的__proto__，然后自身的__proto__指向类的prototype，同时类也有__proto__，如果没有，再向上找，即类的__proto__，再指向类的prototype，再往上找就是Object
+    </script>
+</body>
+
+</html>

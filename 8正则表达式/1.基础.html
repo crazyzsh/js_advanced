@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 【正则表达式中不需要加引号（不管是字符型还是数字型）】
+
+        let regExjp = /12/ //只要包含了12都是true
+        console.log(regExjp.test("123")); //true
+
+        // ^表示开始，$表示结束【如果^和$同时出现，表示必须是精确匹配】
+        let regExp1 = /^1$/
+        console.log(regExp1.test("1")); //true
+        console.log(regExp1.test("11")); //false
+
+        // []表示可选
+        let regExp2 = /[1234]/ //包含1234中任一数字都为真
+        console.log(regExp2.test("2")); //true
+
+        let regExp3 = /[a-zA-Z]/ //从a到z,从A到Z
+        console.log(regExp3.test("d")); //true
+
+        let regExp4 = /[a-zA-Z0-9]/ //从a到z,从A到Z,从0到9
+        console.log(regExp4.test("8")); //true
+        console.log("*".repeat(10));
+        console.log(regExp4.test("B")); //true
+
+        // 如果[]中包含了^，则表示取反，即不包含
+        let regExp5 = /[^1-8]/
+        console.log(regExp5.test("8")); //false
+        console.log(regExp5.test("9")); //true
+    </script>
+</body>
+
+</html>

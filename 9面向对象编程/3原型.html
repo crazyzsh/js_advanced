@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 一般的话，当子类继承了父类中的方法或者属性，此时直接去找的话会找不到，应该追溯其原型，其中隐式原型【__proto__】
+        class Student {
+            constructor(name, score) {
+                this.name = name
+                this.score = score
+            }
+            introduce() {
+                console.log(`我是${this.name},我考了${this.score}分`);
+            }
+        }
+        class Teachet {
+            constructor(course) {
+                this.course = course
+            }
+        }
+
+        student = new Student("小王", "89")
+        console.log(student);
+        const a = {
+            name: 1
+        }
+        console.log(a);
+
+        const b = []
+        console.log(b);
+    </script>
+</body>
+
+</html>

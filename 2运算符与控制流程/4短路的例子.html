@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //    只有为0的时候才是false,其余诸如负数的时候也是true
+        {
+            let a = 0
+            let b = 1
+            if (a) {
+                console.log(a);
+            }
+            if (--a) {
+                console.log(a);
+            }
+            a++
+            console.log(a);
+        }
+
+        let a = 0
+        let b = 1
+        // 所谓的短路就是当判断中是“或||”,那么的话如果左边成立，右边不论真假都不用判断了。
+        if (b || a) {
+            console.log("真假出来的：", a);
+        }
+        // 这样的赋值方式：将为真的值进行赋值，
+        // 假如都为假，则赋值假，假如一真一假，则赋真，假如都为真，则将左边的值进行赋值
+        let c = a || b
+        console.log("将为真的值进行赋值：", c);
+
+        // 这里的实用场景
+        // 如果顺序为如下，则直接有默认值，弹框都不会弹出
+        // let sex = '保密' || prompt("请输入年龄！")
+        let sex = prompt("请输入年龄！") || '保密'
+        console.log("输入的年龄为：", sex);
+
+        // 如果调用函数时不带参数，则默认为5，带参数为0的话也为5
+        function star(num) {
+            return "*".repeat(num || 5)
+        }
+        console.log(star(10));
+    </script>
+</body>
+
+</html>

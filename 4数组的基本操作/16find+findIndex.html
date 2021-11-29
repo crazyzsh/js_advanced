@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let arr = [{ name: "张三", age: 12 }, { name: "lili", age: 21 }, { name: "王五", age: 17 }]
+        let arr1 = [1, 2, 3, 2]
+
+        // find返回的是数组元素
+        a = arr.find((e) => { return e.name === "张三" })
+
+        // findIndex返回的是索引
+        b = arr.findIndex((e) => { return e.name === "lili" })
+
+        // findIndex只能返回第一个出现的索引
+        c = arr1.findIndex((e) => { return e === 2 })
+
+        console.log(a);//{name: '张三', age: 12}
+        console.log(b);//1
+        console.log(c);//1
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let arr = [{ name: "张三", age: 12 }, { name: "lili", age: 21 }, { name: '李四', age: 9 }]
+        // for of循环就是利用了迭代器的使用方法，其中values就是值，keys就是索引
+        for (const value of arr.values()) {
+            console.log(value);
+        }
+        for (const key of arr.keys()) {
+            console.log(key);
+        }
+        // 除了keys和values,还提供了entries,这里的 [key, value]使用了结构赋值的方式进行使用
+        for (const [key, value] of arr.entries()) {
+            console.log(key, value);
+        }
+    </script>
+</body>
+
+</html>

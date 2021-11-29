@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 括号代表优先级(即括号中的为一个整体)
+        let regExp1 = /^(01){2}$/ //整体出现两次
+        console.log(regExp1.test("0101")); //true
+        console.log(regExp1.test("0121")); //false
+
+        // |代表或（没有括号时，重复次数就是前一个字符的重复次数）
+        let regExp2 = /^01{2}|45$/
+        console.log("2*".repeat(10));
+        console.log(regExp2.test("011")); //true
+        console.log(regExp2.test("012")); //false
+        console.log(regExp2.test("45")); //true
+        console.log(regExp2.test("451")); //false
+        //当^出现在[]外时代表开头，如果在里面则代表取反
+        let reg3 = /^[^14]$/
+        console.log("3*".repeat(10));
+        console.log(reg3.test("2")); //true
+        console.log(reg3.test("1")); //false
+        console.log(reg3.test("j")); //true
+        console.log(reg3.test("4")); //false
+    </script>
+</body>
+
+</html>

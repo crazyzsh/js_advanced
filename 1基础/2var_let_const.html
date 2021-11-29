@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 在函数内部声明的变量，只能在函数内部使用，但是，如果在函数内部使用了没有在函数内部定义的变量的话，函数会向外进行查找。
+        // 直接在函数内部进行进行赋值操作，将会改变全局的变量
+        // 外部想要直接访问函数内部的变量是不可能的，但是函数内部可以访问外部的变量
+
+        var a = 1
+
+        function test() {
+            // 在函数内部声明之后才不会污染全局变量（假如这里没有声明a，那么赋值操作影响的就是全局的变量a）
+            let a = 2
+            a += 1
+            console.log(a);
+        }
+        test() //3
+        console.log(a); //1
+    </script>
+</body>
+
+</html>

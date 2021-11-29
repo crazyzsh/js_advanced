@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 使用var声明的变量是直接存储在window对象中的。（假如变量名占用了系统本身的变量的话，也造成了全局污染）
+        // 使用var是可以重复声明并赋值的，而let、const是不可以的
+        // 同一作用域下，假如先使用var进行声明并赋值，再次使用var进行声明并赋值是可以的，但是再次使用let、const进行声明并赋值则会报错
+        var xx = 1
+        console.log(window.xx); //1
+        let xx = 2
+        console.log(xx); //报错
+        var screenLeft = 33 //覆盖了原本window对象中的变量
+        console.log(window.screenLeft);
+    </script>
+</body>
+
+</html>

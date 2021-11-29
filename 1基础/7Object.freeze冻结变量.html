@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 假如想让变量不能被修改，则可以使用Object.freeze(变量名)来进行变量冻结
+        const portObj = {
+            url: "www.baidu.com",
+            port: 5500
+        }
+        portObj.port = 8080
+        console.log(portObj);
+        // 上述的代码是可以修改对象的
+        // 但是一加入Object.freeze(portObj)则不可更改了，如果使用"use strict"后且也冻结了还进行修改，则会报错
+        Object.freeze(portObj)
+        portObj.port = 9999
+        console.log(portObj);
+    </script>
+</body>
+
+</html>

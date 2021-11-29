@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 一般的话，除了简单的设定数字字母等，还可以直接使用预定义类，这样会更简洁方便
+
+        //1   \d表示数字，\D表示除了数字之外的字符
+        let reg1 = /\d/
+        console.log(reg1.test("h"));
+
+        //2   \w表示任意的字母数字下划线相当于[0-9a-zA-Z_] 、 \W表示取反
+
+        //3   \s匹配空格（换行符、制表符、空格等）相当于[\t\r\n\v\f]   \S表示取反
+    </script>
+</body>
+
+</html>

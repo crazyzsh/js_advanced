@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div>点我</div>
+    <script>
+        // 先定义全局的that
+        let that
+        class Star {
+            constructor(name) {
+                this.name = name
+                this.div = document.querySelector("div")
+                this.div.onclick = this.sing
+                // 这里是将实例对象的this暴露出去，供有需要的地方使用
+                that = this
+            }
+            sing() {
+                // 这里面的this指向的函数的调用者，这里函数的调用者为div,所以如果使用this会报错
+                // console.log(this.name);
+                console.log(that.name);
+            }
+        }
+        a = new Star("刘德华")
+    </script>
+</body>
+
+</html>

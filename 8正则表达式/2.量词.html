@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 表示重复具体次数
+        let regExp1 = /^[0-5]{3}$/
+        console.log(regExp1.test("123")); //true
+        console.log(regExp1.test("127")); //false
+        console.log(regExp1.test("12")); //false
+
+        //表示重复区间【加一个逗号，表示没有上限】
+        let regExp2 = /^[1-6]{2,}$/
+        console.log("2*".repeat(10));
+        console.log(regExp2.test("124")); //true
+        console.log(regExp2.test("21")); //true
+        console.log(regExp2.test("45616")); //true
+        console.log(regExp2.test("2")); //false
+
+        //表示重复区间
+        let regExp3 = /^[a-g]{2,4}$/
+        console.log("3*".repeat(10));
+        console.log(regExp3.test("bea")); //true
+        console.log(regExp3.test("hjalh")); //false
+
+        //*表示重复[0,+∞]次数
+        let regExp4 = /^[0-6]*$/
+        console.log("4*".repeat(10));
+        console.log(regExp4.test("")); //true
+        console.log(regExp4.test("5")); //true
+        console.log(regExp4.test("21342144")); //true
+
+        //+表示重复[1，+∞]次数
+        let regExp5 = /^[0-8]+$/
+        console.log("5*".repeat(10));
+        console.log(regExp5.test("")); //false
+        console.log(regExp5.test("324")); //true
+
+        //？表示出现0次或者1次
+        let regExp6 = /^[0-3]?$/
+        console.log("6*".repeat(10));
+        console.log(regExp6.test("")); //true
+        console.log(regExp6.test("2")); //true
+        console.log(regExp6.test("222")); //false
+    </script>
+</body>
+
+</html>

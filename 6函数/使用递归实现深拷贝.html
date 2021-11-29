@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 使用递归完成深拷贝（使得引用数据不会相互干扰）
+        function recursiveCopy(newValue, oldValue) {
+            for (const key in oldValue) {
+                let item = oldValue[key]
+                // 先进行数组的过滤（先过滤数组的话就不会走对象的判断了），假如先进行对象的过滤的话，数组也是对象，就不能准确的进行过滤
+                if (item instanceof Array) {
+                    // console.log("A", item);
+                    newValue[key] = []
+                    recursiveCopy(newValue[key], item)
+                } else if (item instanceof Object) {
+                    // console.log("O:", item);
+                    newValue[key] = {}
+                    recursiveCopy(newValue[key], item)
+                } else {
+                    // console.log('R:', item);
+                    newValue[key] = item
+                }
+            }
+        }
+        let obj = {
+            name: "Lili",
+            hobby: {
+                project: "football",
+                score: 88
+            },
+            age: 18,
+            historyScore: [66, 87, 67, 89]
+        }
+        let newValue = {}
+        recursiveCopy(newValue, obj)
+        console.log(newValue);
+        newValue.name = "Balala"
+        // 打印出来的值互不干扰
+        console.log(obj.name); //Lili
+        console.log(newValue.name); //Balala
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // every针对的是如果数组中有一个为假，那么就为假（和forEach一样有三个参数）
+        let scoreInfo = [{ name: "张三", score: 56 }, { name: "李四", score: 86 }, { name: "王茹", score: 76 }]
+        a = scoreInfo.every((e) => {
+            return e.score >= 60
+        })
+        console.log(a);//false
+        // some针对的是如果数组中有一个为真，那么就为真（和forEach一样有三个参数）
+        b = scoreInfo.some((e) => { return e.score < 80 })
+        console.log(b);
+    </script>
+</body>
+
+</html>

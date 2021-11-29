@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let a = true
+        let b = false
+        a = true ? 1 : 0
+        // 这里定义函数时一定要先定义好options的类型(这里为对象)，但是不能赋值为null
+        function createEle(options = {}) {
+            // 创建元素
+            div = document.createElement('div')
+            div.style.height = options.height ? options.height : "100px"
+            div.style.width = options.width ? options.width : "100px"
+            div.style.background = options.background ? options.background : "red"
+            // 追加元素
+            document.body.appendChild(div)
+        }
+        // 根据默认的来
+        createEle()
+        // 直接传值
+        createEle({
+            height: "300px",
+            width: "300px",
+            background: "pink"
+        })
+    </script>
+</body>
+
+</html>

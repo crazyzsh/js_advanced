@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var i = 99
+        for (var i = 0; i < 5; i++) {
+            console.log(i);
+        }
+        console.log("最后循环出来的：", i); //5
+
+        // 上述就是循环出来的值作用了全局的i
+        // 假如循环中使用的是let，那么打印出来的就是一开始声明的i=99
+    </script>
+</body>
+
+</html>

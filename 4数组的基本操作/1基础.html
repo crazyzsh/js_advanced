@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        hello
+    </div>
+    <div>
+        world
+    </div>
+    <script>
+        // 数组的转换成字符串
+        let arr = [1, 2, 3, 5]
+        // 将数组转化成字符串
+        console.log(arr.join(""));
+        console.log(arr.join("-"));
+        console.log(String(arr));
+        // 将其他元素转化成数组
+        let a = "hello world"
+        // 将字符串转换成数组
+        console.log(a.split(""));
+        console.log(a.split(" "));
+        let b = "hello"
+
+        console.log(Array.from(b));
+
+        let div = document.querySelectorAll("div")
+        console.log(div);
+
+        // Array.from也可以进行迭代
+        Array.from(div, function (item) {
+            item.style.background = "red"
+        })
+    </script>
+</body>
+
+</html>

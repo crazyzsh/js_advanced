@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 在浏览器中，假如没有声明变量，而是直接赋值，程序是可以正常运行的。此时如果要严谨一些的话，就使用 "use strict"来使用严格模式，这样程序就会报错
+
+        // "use strict"
+        function test() {
+            a = 2
+        }
+        test()
+        console.log(a);
+        // 这样的话，由于函数进行了调用，且此时a没有进行声明，那么函数一经调用将污染了全局，即此时a===2（假如函数没有进行调用，此时即使没有声明也不会污染全局）===>关键是函数有没有进行调用
+        // 如果函数内部进行了声明，那么此时外部是无法直接获取其值的，即不会污染全局
+    </script>
+</body>
+
+</html>

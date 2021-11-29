@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        a = 1
+        // typeof中的“o”为小写
+        console.log(typeof a); //number
+        arr = []
+        obj = {}
+
+        function func() {}
+        console.log(typeof arr); //object
+        console.log(arr instanceof Array); //true
+        console.log(arr instanceof Object); //true
+
+        console.log(typeof obj); //object
+        console.log(obj instanceof Object); //true
+        console.log(obj instanceof Array); //false
+
+        console.log(typeof func); //function
+
+        function User() {}
+        let test = new User()
+        console.log(typeof test); //object
+        console.log(test instanceof User); //true
+        console.log(test instanceof Object); //true
+        console.log(test instanceof Array); //false
+    </script>
+</body>
+
+</html>

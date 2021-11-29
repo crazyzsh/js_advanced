@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 法一：
+        function finds(arr, find) {
+            for (const value of arr) {
+                if (value === find) { return value }
+            }
+            return undefined
+        }
+        console.log(finds([1, 2, 3, 4], 1));
+        // 法二
+        function findss(arr, callBack) {
+            for (const value of arr) {
+                if (callBack(value)) {
+                    return value
+                }
+            }
+            return undefined
+        }
+        // 这里的回调函数返回的就是布尔值，因为要么是等于或者不等于
+        console.log(findss([1, 2, 3, 1], (e) => { return e === 2 }));
+
+    </script>
+</body>
+
+</html>
