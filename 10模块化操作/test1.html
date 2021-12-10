@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>模块化-默认导出</title>
+</head>
+
+<body>
+    <script type="module">
+        //   一定注意，这里的路径一定要写全，包括文件名后面的“.js”字样，还有“./”等，如果缺少就会报错  //
+
+        // 1、引入默认导出模块（计算加法函数）
+        import adds from "./module1.js"
+        adds(1,6)
+
+        // 2、引入单独导出的类（使用其静态方法）
+        import {Say}  from './module2.js';
+        Say.sayHi()
+
+        // 3、默认导出类的话可以不加类名（使用其静态方法）
+        import Says from './module3.js';
+        Says.sayHello()
+
+        // 4、直接导出的(分别写)
+        import {a,b,Other} from "./module4.js"
+        a()
+        console.log(b);
+        let aa=new Other("花花",12)
+        aa.introduction()
+        // 直接导出（统一写）
+        
+        // 一起导出
+        import {c,cc} from './module5.js';
+        console.log(c);
+        cc()
+        // 使用别名进行导入或者导出
+        
+    </script>
+</body>
+
+</html>
