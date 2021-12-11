@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>控制异步的老方法</title>
+</head>
+<style>
+    div {
+        width: 100px;
+        height: 100px;
+        background: yellowgreen;
+        position: absolute;
+    }
+</style>
+
+<body>
+    <div></div>
+</body>
+
+<script>
+    // 重定义时间间隔函数
+    function interval(callback, delay = 100) {
+        // setInterval函数有返回值，其中setInterval中也可以拿到返回值
+        let id = setInterval(() => {
+            callback(id)
+        }, delay);
+    }
+
+    // 获取dom元素
+    const div = document.querySelector("div");
+
+    // 使用interval函数
+    interval(timeId => {
+        const left = parseInt(window.getComputedStyle(div).left);
+        div.style.left = left + 10 + "px";
+        if (left > 200) {
+            clearInterval(timeId);
+            interval(timeId => {
+                const width = parseInt(window.getComputedStyle(div).width);
+                div.style.width = width - 1 + "px";
+                if (width <= 0) clearInterval(timeId);
+            }, 10);
+        }
+    }, 100);
+</script>
+
+</html>

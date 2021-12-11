@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let a = Promise.resolve("快速来一个promise")
+
+        console.log(a);
+        let b = "同步"
+        console.log(b);
+        // 上面的程序先打印a,再打印b，即使用Promise的resolve将快速生成一个Promise对象
+
+        let c = new Promise((res, rej) => {})
+        console.log(c);
+        console.log("急急急");
+    </script>
+</body>
+
+</html>

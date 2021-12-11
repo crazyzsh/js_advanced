@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        async function p1() {
+            return new Promise(resolve => {
+                setTimeout(() => {
+                    console.log("houdunren");
+                    resolve();
+                }, 1000);
+            });
+        }
+        async function p2() {
+            return new Promise(resolve => {
+                setTimeout(() => {
+                    console.log("hdcms");
+                    resolve();
+                }, 1000);
+            });
+        }
+        async function p3() {
+            return new Promise(resolve => {
+                setTimeout(() => {
+                    console.log("houdunren");
+                    resolve();
+                }, 4000);
+            });
+        }
+        async function p4() {
+            return new Promise(resolve => {
+                setTimeout(() => {
+                    console.log("hdcms");
+                    resolve();
+                }, 4000);
+            });
+        }
+        async function hd() {
+            // 直接使用await的话可以控制进程，先执行前面的再执行后面的
+            await p1();
+            await p2();
+        }
+        hd();
+
+        // 并行计算
+        async function sameT() {
+            let a = await Promise.all([p3(), p4()])
+            console.log(a);
+        }
+        sameT()
+    </script>
+</body>
+
+</html>

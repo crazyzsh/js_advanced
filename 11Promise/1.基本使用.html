@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Promise基本使用</title>
+</head>
+
+<body>
+    <script>
+        // 1、一般的话，程序执行分为同步代码和异步代码，同步代码就是普通代码，异步代码就是需要等待的代码，例如定时器，网络请求等
+
+        // 2、在页面中，都是先执行同步代码，再执行异步代码（这是要明白的前提，要充分利用代码的执行顺序）
+
+        // 3、以往的话，在业务有需求的情况下，为了控制异步代码的执行顺序，容易产生回调地狱，promise的出现的作用就是解决回调地狱
+
+        // 4、Promise一定要resolve或者reject做出回应，不然是会一直处于pending状态的
+
+        // 5、Promise的理解就是：点餐，先询问服务员能不能做，然后服务员给出承诺（能做或者不能做resolve 或者reject），then可以得到可以做的情况下的餐，也可以得到不能做情况下的回应
+
+
+        // 1、这个是返回成功的Promise
+        let a = new Promise((resolve, reject) => {
+            resolve("a：返回的是成功的Promise对象")
+        })
+        console.log("a:", a); //使用resolve做出了回应，所以状态是fulfilled（完成状态）
+
+        // 2、使用then这个方法就能将Promise拿到
+        a.then(re => {
+            console.log(re);
+        })
+
+        // 3、处理失败的Promise的方法一：使用catch
+        let b = new Promise((resolve, reject) => {
+            reject("b：失败的状态啊！")
+        }).catch(err => {
+            console.log(err);
+        })
+        console.log('b:', b); //pending状态（虽然使用reject做出了回应（本应是rejected状态），但是由于进行了错误捕捉catch，所以又变成pending状态了）
+
+        // 4、处理失败的Promise的方法二：在then的第一个参数使用null即可，或者第一个参数写一个不做处理的回调函数
+        let c = new Promise((resolve, reject) => {
+            reject("c：失败的状态啊！")
+        }).then(null, err => {
+            console.log(err);
+        })
+        console.log('c:', c); // pending状态（虽然使用reject做出了回应（本应是rejected状态），但是由于.then也是一个Promise且没有做出回应，所以又变成pending状态了）
+
+        // 5、使用return进行返回让后一个then进行取用
+        let d = new Promise((resolve, reject) => {
+            resolve("d:成功")
+        }).then(val => {
+            return val + 11
+        })
+
+        d.then(res => {
+            console.log(res);
+        })
+
+        // 6、使用return返回一个Promise让后一个then进行取用
+        let e = new Promise((resolve, reject) => {
+            resolve("e:成功")
+        }).then(re => {
+            console.log(re);
+            // 再返回一个Promise供后面的then使用
+            return new Promise((res, rej) => {
+                res("jjj")
+            })
+        })
+        e.then(re => {
+            console.log(re);
+        })
+
+        // 7、return一个对象或者类（须包含then方法）
+    </script>
+</body>
+
+</html>
