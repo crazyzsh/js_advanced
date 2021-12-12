@@ -20,6 +20,19 @@
 
         // 5、Promise的理解就是：点餐，先询问服务员能不能做，然后服务员给出承诺（能做或者不能做resolve 或者reject），then可以得到可以做的情况下的餐，也可以得到不能做情况下的回应
 
+        // 6-1、所有Promise都必须返回一个Promise对象（普通的值或对象都会被封装成Promise对象），然后使用then来进行接收
+        // 6-2、return出去的Promise对象也必须是处理好的状态（resolve或者reject状态），不然后面的then会接受不成功，
+        // 6-3、如果直接return出去的是值或者其他对象（并非直接new出来的Promise），默认是成功的Promise（相当于是做了处理）
+
+        // 7、由于then也是一个Promise对象，如果没有后续操作的话，就不用继续return对象出去了，所有关于此异步操作到此结束，所有的逻辑也都在这里处理好了
+
+        // 8、由于上述异步操作中使用then的时候是采用链式操作的方式进行调用，还是不够优雅，await的出现使得异步代码的书写和同步代码几乎一样了，仅仅多加了await关键字（在一般情况下可以当成是then）
+
+        // 9、async函数将返回promise，我们就可以像使用标准Promise一样使用了（简而言之就是async函数的返回值就是Promise，相当于是Promise的另一种写法，可以对比一下Promise和then的写法）。
+        // 9-1、await 后面一般是promise，如果不是直接返回
+        // 9-2、await 必须放在 async 定义的函数中使用
+        // 9-3、await 用于替代 then 使编码更优雅
+        // 9-4、await将会阻塞同步代码的执行
 
         // 1、这个是返回成功的Promise
         let a = new Promise((resolve, reject) => {

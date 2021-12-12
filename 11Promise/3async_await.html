@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 1、async函数将返回promise，我们就可以像使用标准Promise一样使用了。
+        async function hd() {
+            return "houdunren.com";
+        }
+        console.log(hd()); //Promise===>fulfilled
+        hd().then(value => {
+            console.log(value);
+        });
+
+        async function test() {
+            const promise = new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    resolve("houdunren.com");
+                }, 2000);
+            });
+            // 一旦使用了await，就会就是阻塞下面代码的执行（不会先输出同步代码，而是先进行阻塞，直至异步完成）
+            let result = await promise;
+            console.log("会拦住吗？");
+            console.log(result);
+        }
+        test()
+    </script>
+</body>
+
+</html>

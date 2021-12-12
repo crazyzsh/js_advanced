@@ -46,15 +46,17 @@
             // 直接使用await的话可以控制进程，先执行前面的再执行后面的
             await p1();
             await p2();
+
         }
         hd();
 
         // 并行计算
-        async function sameT() {
+        async function sames() {
             let a = await Promise.all([p3(), p4()])
             console.log(a);
         }
-        sameT()
+        sames()
+        // 或者直接先调用函数，再使用await进行（此时的await相当于是then的效果，并没有阻塞进程）
     </script>
 </body>
 

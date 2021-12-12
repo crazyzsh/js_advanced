@@ -10,16 +10,12 @@
 
 <body>
     <script>
+        // resolve用于快速新建一个Promise对象
         let a = Promise.resolve("快速来一个promise")
-
         console.log(a);
         let b = "同步"
         console.log(b);
         // 上面的程序先打印a,再打印b，即使用Promise的resolve将快速生成一个Promise对象
-
-        let c = new Promise((res, rej) => {})
-        console.log(c);
-        console.log("急急急");
     </script>
 </body>
 
